@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('bons', function (Blueprint $table) {
+            $table->id();
+            $table->string('numero')->unique();
+            $table->enum('type', ['livraison', 'intervention', 'relevé Compteur']);
+            $table->date('date');
+            $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
+            $table->text('travaux_effectues')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('bons');
     }
 };
