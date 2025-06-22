@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bon', function (Blueprint $table) {
+        Schema::create('bons', function (Blueprint $table) {
             $table->id();
             $table->string('numero')->unique();
             $table->enum('type', ['livraison', 'intervention', 'relevé Compteur']);
