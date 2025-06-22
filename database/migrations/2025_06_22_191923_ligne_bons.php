@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('ligne_bons', function (Blueprint $table) {
+        Schema::create('ligne_bon', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bon_id')->constrained()->onDelete('cascade');
             $table->string('designation');
